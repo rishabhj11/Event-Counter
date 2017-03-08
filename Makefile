@@ -1,17 +1,11 @@
-JFLAGS = -g
-JC = javac
-.SUFFIXES: .java .class
-.java.class:
-	$(JC) $(JFLAGS) $*.java
+CC      = g++
+RM      = rm -f
 
-CLASSES = \
-	rbTree.java \
-	rbNode.java \
-	bbst.java
+default: bbst
 
-default: classes
-
-classes: $(CLASSES:.java=.class)
-
+bbst: bbst.cpp
+	$(CC) -o bbst bbst.cpp rbtree.cpp 
+	
 clean:
-	$(RM) *.class
+	rm -f core *.o bbst rbtree
+	
